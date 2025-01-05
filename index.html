@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zarkan Jewelry – The Next Level</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Extra Tailwind Animations & 3D Setup -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandPurple: "#6D28D9",
+              brandPink: "#EC4899",
+              brandBlue: "#3B82F6",
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            },
+            animation: {
+              fadeIn: "fadeIn 0.5s ease-in forwards",
+              slideDown: "slideDown 0.6s ease-out forwards",
+              pop: "pop 0.3s ease-in-out forwards",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideDown: {
+                "0%": { transform: "translateY(-1rem)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              pop: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.05)" },
+              },
+            },
+            boxShadow: {
+              neon: "0 0 10px rgba(236, 72, 153, 0.6)",
+            },
+            perspective: {
+              1000: "1000px",
+            },
+            transformStyle: {
+              preserve3d: "preserve-3d",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* 3D card effect on hover */
+      .card-3d:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+      .card-inner {
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .card-front,
+      .card-back {
+        backface-visibility: hidden;
+      }
+      .card-back {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body
+    class="
+      text-gray-900
+      bg-gradient-to-br from-brandPurple via-brandPink to-brandBlue
+      min-h-screen
+      relative
+    "
+  >
+    <!-- TOP BANNER -->
+    <div
+      class="
+        text-white text-center py-2 text-sm
+        animate-pulse
+        bg-black bg-opacity-30
+      "
+    >
+      Get 5% OFF on All Prepaid Orders, Use Code: PAY5
+    </div>
+
+    <!-- NAVBAR / HEADER -->
+    <header
+      class="
+        bg-black bg-opacity-30
+        sticky top-0 z-50
+        flex items-center justify-between px-4 py-3
+        shadow-md
+        animate-slideDown
+      "
+    >
+      <!-- Left Section -->
+      <div class="flex items-center space-x-4 text-white">
+        <!-- Home Button -->
+        <button
+          class="text-2xl hover:text-brandPink transition-colors"
+          onclick="goHome()"
+        >
+          <i class="fas fa-home"></i>
+        </button>
+
+        <!-- Logo -->
+        <img
+          src="https://storage.googleapis.com/a1aa/image/vrJoeVyGLs0aMqoDnDYZUBhUqX3OgxOxDJua7AmNnyKeg0BUA.jpg"
+          alt="Zarkan Logo"
+          class="h-10 w-auto rounded-lg shadow-neon"
+        />
+      </div>
+
+      <!-- Right Section -->
+      <div class="flex items-center space-x-4 text-white">
+        <!-- Search Button -->
+        <button
+          class="text-xl hover:text-brandPink transition-colors"
+          onclick="openSearchOverlay()"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+        <!-- Heart Button -->
+        <button class="text-xl hover:text-brandPink transition-colors">
+          <i class="fas fa-heart"></i>
+        </button>
+        <!-- Cart Button -->
+        <button class="text-xl hover:text-brandPink transition-colors">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+        <!-- Contact Us Button -->
+        <button
+          class="
+            bg-brandPink text-white px-3 py-1 rounded-full
+            hover:bg-brandBlue transition-colors
+            flex items-center space-x-2
+          "
+          onclick="openContactModal()"
+        >
+          <i class="fas fa-envelope"></i>
+          <span>Contact Us</span>
+        </button>
+        <!-- User Button -->
+        <button class="text-xl hover:text-brandPink transition-colors">
+          <i class="fas fa-user"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mx-auto px-4 py-6 text-white">
+      <h1
+        class="
+          text-3xl sm:text-4xl font-extrabold text-center
+          mb-6 animate-pop
+        "
+      >
+        Perfect Gift for Your Partner
+      </h1>
+
+      <!-- Sort & View Options -->
+      <div class="flex items-center justify-between mb-4 flex-wrap">
+        <div class="flex items-center space-x-2 mb-2">
+          <span class="text-white font-semibold">Sort:</span>
+          <select
+            class="border border-gray-300 text-gray-700 rounded px-2 py-1"
+          >
+            <option>Best selling</option>
+            <option>Price (Low to High)</option>
+            <option>Price (High to Low)</option>
+          </select>
+        </div>
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-th-large text-2xl hover:text-brandPink cursor-pointer"></i>
+          <i class="fas fa-th-list text-2xl hover:text-brandPink cursor-pointer"></i>
+        </div>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div
+        class="
+          grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6
+          perspective-1000
+        "
+      >
+        <!-- PRODUCT CARD EXAMPLE (reuse for each) -->
+        <!-- Product 1 -->
+        <div
+          class="
+            bg-white bg-opacity-10 p-4 rounded-lg
+            shadow-lg
+            transition-shadow duration-300
+            card-3d
+          "
+        >
+          <!-- 3D Inner Container -->
+          <div class="card-inner relative">
+            <!-- FRONT FACE -->
+            <div class="card-front">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/aBxnqvWU1xLqANZ7IUxM8oGMEHop2LQhhqJi3XcLaAxpIdAF.jpg"
+                  alt="Suit Salwar 1"
+                  class="
+                    w-full h-48 object-cover cursor-pointer
+                    transform transition-transform duration-500
+                    hover:scale-110
+                  "
+                  onclick="openImagePreview('https://storage.googleapis.com/a1aa/image/aBxnqvWU1xLqANZ7IUxM8oGMEHop2LQhhqJi3XcLaAxpIdAF.jpg')"
+                />
+              </div>
+              <span
+                class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mt-2"
+                >-56%</span
+              >
+              <h2 class="text-lg font-bold mt-3">Suit Salwar 1</h2>
+              <div class="flex items-center mt-2 text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2">46 reviews</span>
+              </div>
+              <div class="text-sm line-through mt-2">Rs. 1,999.00</div>
+              <div class="text-xl font-extrabold">Rs. 899.00</div>
+
+              <!-- BUY NOW Button -->
+              <button
+                class="
+                  mt-4 w-full bg-black bg-opacity-50 text-white py-2
+                  rounded-lg hover:bg-brandPink transition-colors
+                "
+                onclick="openFormModal('product1Modal')"
+              >
+                BUY NOW
+              </button>
+            </div>
+            <!-- BACK FACE (3D rotate) -->
+            <div
+              class="
+                card-back absolute inset-0 p-4 rounded-lg
+                bg-white bg-opacity-20 backdrop-blur-md
+                flex flex-col items-center justify-center
+              "
+            >
+              <h3 class="text-xl font-bold mb-2">Exclusive Deal!</h3>
+              <p class="mb-4 text-center">
+                Grab our Suit Salwar 1 at a special price and enjoy timeless
+                style.
+              </p>
+              <button
+                class="
+                  bg-brandPink text-white px-4 py-2 rounded-lg
+                  hover:bg-brandBlue transition-colors
+                "
+                onclick="openFormModal('product1Modal')"
+              >
+                Order Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate the above product card for Products 2, 3, 4, 5, 6, etc. -->
+        <!-- Product 2 -->
+        <div
+          class="
+            bg-white bg-opacity-10 p-4 rounded-lg
+            shadow-lg
+            transition-shadow duration-300
+            card-3d
+          "
+        >
+          <div class="card-inner relative">
+            <!-- FRONT -->
+            <div class="card-front">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/SZrrzCeWeFqpFUCnVix5JIlUSgfm6pCeiRa33Ir7MX2fVkOgC.jpg"
+                  alt="Suit Salwar 2"
+                  class="
+                    w-full h-48 object-cover cursor-pointer
+                    transform transition-transform duration-500
+                    hover:scale-110
+                  "
+                  onclick="openImagePreview('https://storage.googleapis.com/a1aa/image/SZrrzCeWeFqpFUCnVix5JIlUSgfm6pCeiRa33Ir7MX2fVkOgC.jpg')"
+                />
+              </div>
+              <span
+                class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mt-2"
+                >-67%</span
+              >
+              <h2 class="text-lg font-bold mt-3">Suit Salwar 2</h2>
+              <div class="flex items-center mt-2 text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2">33 reviews</span>
+              </div>
+              <div class="text-sm line-through mt-2">Rs. 2,999.00</div>
+              <div class="text-xl font-extrabold">Rs. 999.00</div>
+
+              <!-- BUY NOW Button -->
+              <button
+                class="
+                  mt-4 w-full bg-black bg-opacity-50 text-white py-2
+                  rounded-lg hover:bg-brandPink transition-colors
+                "
+                onclick="openFormModal('product2Modal')"
+              >
+                BUY NOW
+              </button>
+            </div>
+            <!-- BACK -->
+            <div
+              class="
+                card-back absolute inset-0 p-4 rounded-lg
+                bg-white bg-opacity-20 backdrop-blur-md
+                flex flex-col items-center justify-center
+              "
+            >
+              <h3 class="text-xl font-bold mb-2">New Arrival!</h3>
+              <p class="mb-4 text-center">
+                Suit Salwar 2 – a perfect blend of tradition and modern style.
+              </p>
+              <button
+                class="
+                  bg-brandPink text-white px-4 py-2 rounded-lg
+                  hover:bg-brandBlue transition-colors
+                "
+                onclick="openFormModal('product2Modal')"
+              >
+                Order Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div
+          class="
+            bg-white bg-opacity-10 p-4 rounded-lg
+            shadow-lg
+            transition-shadow duration-300
+            card-3d
+          "
+        >
+          <div class="card-inner relative">
+            <!-- FRONT -->
+            <div class="card-front">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/XJsB2MURekXoFqAvqemDmbef6y71JisbOZNEgtuMODmuKSHQB.jpg"
+                  alt="Suit Salwar 3"
+                  class="
+                    w-full h-48 object-cover cursor-pointer
+                    transform transition-transform duration-500
+                    hover:scale-110
+                  "
+                  onclick="openImagePreview('https://storage.googleapis.com/a1aa/image/XJsB2MURekXoFqAvqemDmbef6y71JisbOZNEgtuMODmuKSHQB.jpg')"
+                />
+              </div>
+              <span
+                class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mt-2"
+                >-58%</span
+              >
+              <h2 class="text-lg font-bold mt-3">Suit Salwar 3</h2>
+              <div class="flex items-center mt-2 text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2">20 reviews</span>
+              </div>
+              <div class="text-sm line-through mt-2">Rs. 1,499.00</div>
+              <div class="text-xl font-extrabold">Rs. 699.00</div>
+
+              <!-- BUY NOW Button -->
+              <button
+                class="
+                  mt-4 w-full bg-black bg-opacity-50 text-white py-2
+                  rounded-lg hover:bg-brandPink transition-colors
+                "
+                onclick="openFormModal('product3Modal')"
+              >
+                BUY NOW
+              </button>
+            </div>
+            <!-- BACK -->
+            <div
+              class="
+                card-back absolute inset-0 p-4 rounded-lg
+                bg-white bg-opacity-20 backdrop-blur-md
+                flex flex-col items-center justify-center
+              "
+            >
+              <h3 class="text-xl font-bold mb-2">Limited Stock!</h3>
+              <p class="mb-4 text-center">
+                Suit Salwar 3 – Grab it now before it’s gone.
+              </p>
+              <button
+                class="
+                  bg-brandPink text-white px-4 py-2 rounded-lg
+                  hover:bg-brandBlue transition-colors
+                "
+                onclick="openFormModal('product3Modal')"
+              >
+                Order Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div
+          class="
+            bg-white bg-opacity-10 p-4 rounded-lg
+            shadow-lg
+            transition-shadow duration-300
+            card-3d
+          "
+        >
+          <div class="card-inner relative">
+            <!-- FRONT -->
+            <div class="card-front">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/IgkiQzfZDH0cCqZfegiFmZAiWrf89QRc3Ku0bAyjiHEPLSHQB.jpg"
+                  alt="Suit Salwar 4"
+                  class="
+                    w-full h-48 object-cover cursor-pointer
+                    transform transition-transform duration-500
+                    hover:scale-110
+                  "
+                  onclick="openImagePreview('https://storage.googleapis.com/a1aa/image/IgkiQzfZDH0cCqZfegiFmZAiWrf89QRc3Ku0bAyjiHEPLSHQB.jpg')"
+                />
+              </div>
+              <span
+                class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mt-2"
+                >-61%</span
+              >
+              <h2 class="text-lg font-bold mt-3">Suit Salwar 4</h2>
+              <div class="flex items-center mt-2 text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2">15 reviews</span>
+              </div>
+              <div class="text-sm line-through mt-2">Rs. 2,599.00</div>
+              <div class="text-xl font-extrabold">Rs. 999.00</div>
+
+              <!-- BUY NOW Button -->
+              <button
+                class="
+                  mt-4 w-full bg-black bg-opacity-50 text-white py-2
+                  rounded-lg hover:bg-brandPink transition-colors
+                "
+                onclick="openFormModal('product4Modal')"
+              >
+                BUY NOW
+              </button>
+            </div>
+            <!-- BACK -->
+            <div
+              class="
+                card-back absolute inset-0 p-4 rounded-lg
+                bg-white bg-opacity-20 backdrop-blur-md
+                flex flex-col items-center justify-center
+              "
+            >
+              <h3 class="text-xl font-bold mb-2">Hot Sale!</h3>
+              <p class="mb-4 text-center">
+                Suit Salwar 4 – Add a splash of elegance to your wardrobe.
+              </p>
+              <button
+                class="
+                  bg-brandPink text-white px-4 py-2 rounded-lg
+                  hover:bg-brandBlue transition-colors
+                "
+                onclick="openFormModal('product4Modal')"
+              >
+                Order Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div
+          class="
+            bg-white bg-opacity-10 p-4 rounded-lg
+            shadow-lg
+            transition-shadow duration-300
+            card-3d
+          "
+        >
+          <div class="card-inner relative">
+            <!-- FRONT -->
+            <div class="card-front">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/eGNgGURy1RQLE6U3VerVgH5m5JXfdcYLH1qhuYaltdZiFpDoA.jpg"
+                  alt="Suit Salwar 5"
+                  class="
+                    w-full h-48 object-cover cursor-pointer
+                    transform transition-transform duration-500
+                    hover:scale-110
+                  "
+                  onclick="openImagePreview('https://storage.googleapis.com/a1aa/image/eGNgGURy1RQLE6U3VerVgH5m5JXfdcYLH1qhuYaltdZiFpDoA.jpg')"
+                />
+              </div>
+              <span
+                class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mt-2"
+                >-50%</span
+              >
+              <h2 class="text-lg font-bold mt-3">Suit Salwar 5</h2>
+              <div class="flex items-center mt-2 text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2">10 reviews</span>
+              </div>
+              <div class="text-sm line-through mt-2">Rs. 1,999.00</div>
+              <div class="text-xl font-extrabold">Rs. 999.00</div>
+
+              <!-- BUY NOW Button -->
+              <button
+                class="
+                  mt-4 w-full bg-black bg-opacity-50 text-white py-2
+                  rounded-lg hover:bg-brandPink transition-colors
+                "
+                onclick="openFormModal('product5Modal')"
+              >
+                BUY NOW
+              </button>
+            </div>
+            <!-- BACK -->
+            <div
+              class="
+                card-back absolute inset-0 p-4 rounded-lg
+                bg-white bg-opacity-20 backdrop-blur-md
+                flex flex-col items-center justify-center
+              "
+            >
+              <h3 class="text-xl font-bold mb-2">Must-Have!</h3>
+              <p class="mb-4 text-center">
+                Suit Salwar 5 – A statement piece for any occasion.
+              </p>
+              <button
+                class="
+                  bg-brandPink text-white px-4 py-2 rounded-lg
+                  hover:bg-brandBlue transition-colors
+                "
+                onclick="openFormModal('product5Modal')"
+              >
+                Order Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div
+          class="
+            bg-white bg-opacity-10 p-4 rounded-lg
+            shadow-lg
+            transition-shadow duration-300
+            card-3d
+          "
+        >
+          <div class="card-inner relative">
+            <!-- FRONT -->
+            <div class="card-front">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/eOucMCNPeLuLTEjgjgBN93ckn8vmMhLGAXba1Jyyf0hqFpDoA.jpg"
+                  alt="Suit Salwar 6"
+                  class="
+                    w-full h-48 object-cover cursor-pointer
+                    transform transition-transform duration-500
+                    hover:scale-110
+                  "
+                  onclick="openImagePreview('https://storage.googleapis.com/a1aa/image/eOucMCNPeLuLTEjgjgBN93ckn8vmMhLGAXba1Jyyf0hqFpDoA.jpg')"
+                />
+              </div>
+              <span
+                class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mt-2"
+                >-45%</span
+              >
+              <h2 class="text-lg font-bold mt-3">Suit Salwar 6</h2>
+              <div class="flex items-center mt-2 text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2">25 reviews</span>
+              </div>
+              <div class="text-sm line-through mt-2">Rs. 2,499.00</div>
+              <div class="text-xl font-extrabold">Rs. 1,299.00</div>
+
+              <!-- BUY NOW Button -->
+              <button
+                class="
+                  mt-4 w-full bg-black bg-opacity-50 text-white py-2
+                  rounded-lg hover:bg-brandPink transition-colors
+                "
+                onclick="openFormModal('product6Modal')"
+              >
+                BUY NOW
+              </button>
+            </div>
+            <!-- BACK -->
+            <div
+              class="
+                card-back absolute inset-0 p-4 rounded-lg
+                bg-white bg-opacity-20 backdrop-blur-md
+                flex flex-col items-center justify-center
+              "
+            >
+              <h3 class="text-xl font-bold mb-2">Festive Offer!</h3>
+              <p class="mb-4 text-center">
+                Suit Salwar 6 – Add grace and glam to your special events.
+              </p>
+              <button
+                class="
+                  bg-brandPink text-white px-4 py-2 rounded-lg
+                  hover:bg-brandBlue transition-colors
+                "
+                onclick="openFormModal('product6Modal')"
+              >
+                Order Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more products similarly if needed -->
+      </div>
+    </main>
+
+    <!-- FOOTER (Optional Example) -->
+    <footer
+      class="
+        mt-10 py-4 text-center text-white
+        bg-black bg-opacity-40
+        backdrop-blur-md
+      "
+    >
+      <p class="mb-2">© 2025 Zarkan Jewelry. All Rights Reserved.</p>
+      <p class="text-sm">
+        Designed with <i class="fas fa-heart text-brandPink"></i> by [Your Name]
+      </p>
+    </footer>
+
+    <!-- OVERLAYS / MODALS -->
+    <!-- SEARCH OVERLAY -->
+    <div
+      id="searchOverlay"
+      class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center"
+    >
+      <div class="relative p-4 w-full max-w-md mx-auto">
+        <button
+          class="absolute top-2 right-2 text-white text-2xl"
+          onclick="closeSearchOverlay()"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="bg-white rounded-lg p-6 text-gray-700">
+          <h2 class="text-xl font-bold mb-2">Search Products</h2>
+          <input
+            type="text"
+            placeholder="Type to search..."
+            class="w-full border border-gray-300 p-2 rounded mb-4"
+          />
+          <button
+            class="
+              bg-brandPink text-white w-full py-2 rounded
+              hover:bg-brandBlue transition-colors
+            "
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div
+      id="contactModal"
+      class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center"
+    >
+      <div class="relative p-4 w-full max-w-md mx-auto">
+        <button
+          class="absolute top-2 right-2 text-white text-2xl"
+          onclick="closeContactModal()"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="bg-white rounded-lg p-6 text-gray-700">
+          <h2 class="text-xl font-bold mb-2">Contact Us</h2>
+          <form class="space-y-3">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full border border-gray-300 p-2 rounded"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="w-full border border-gray-300 p-2 rounded"
+              required
+            />
+            <textarea
+              placeholder="Your Message"
+              rows="3"
+              class="w-full border border-gray-300 p-2 rounded"
+              required
+            ></textarea>
+            <button
+              type="submit"
+              class="
+                bg-brandPink text-white w-full py-2 rounded
+                hover:bg-brandBlue transition-colors
+              "
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGE PREVIEW MODAL (Single, reused for all products) -->
+    <div
+      id="imagePreviewModal"
+      class="
+        hidden fixed inset-0 z-50 flex items-center justify-center
+        bg-black bg-opacity-70
+      "
+    >
+      <div class="relative bg-white rounded p-4 max-w-md w-full">
+        <button
+          class="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          onclick="closeImagePreview()"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <img
+          id="previewImage"
+          src=""
+          alt="Preview"
+          class="w-full h-auto object-contain rounded animate-pop"
+        />
+      </div>
+    </div>
+
+    <!-- BUY NOW PRODUCT MODALS (same as previous) -->
+    <!-- Product 1 Modal -->
+    <div
+      id="product1Modal"
+      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60"
+    >
+      <div class="relative bg-white rounded p-6 max-w-lg w-full text-gray-800">
+        <button
+          class="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          onclick="closeFormModal('product1Modal')"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-xl font-semibold mb-4">Buy Suit Salwar 1</h2>
+        <form action="upi://pay" method="get">
+          <input type="hidden" name="pa" value="hanjla1@paytm" />
+          <input type="hidden" name="pn" value="Zarkan" />
+          <input type="hidden" name="tn" value="Payment for Suit Salwar 1" />
+          <input type="hidden" name="am" value="899.00" />
+          <input type="hidden" name="cu" value="INR" />
+
+          <fieldset class="space-y-3 mb-4">
+            <label class="block">
+              <span class="text-gray-700">Size</span>
+              <select
+                name="size"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              >
+                <option value="">Select Size</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Pieces</span>
+              <input
+                type="number"
+                name="pieces"
+                value="1"
+                min="1"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Color</span>
+              <input
+                type="text"
+                name="color"
+                placeholder="Enter color choice"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Full Name</span>
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Enter your full name"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Address</span>
+              <input
+                type="text"
+                name="address"
+                placeholder="Enter address"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">City</span>
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Pin Code</span>
+              <input
+                type="text"
+                name="pincode"
+                placeholder="Pin Code"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">State</span>
+              <input
+                type="text"
+                name="state"
+                placeholder="State"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Phone Number</span>
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+          </fieldset>
+          <button
+            type="submit"
+            class="
+              w-full bg-brandPink text-white py-2 rounded
+              hover:bg-brandBlue transition-colors
+            "
+          >
+            Proceed to Pay
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Duplicate product1Modal for product2Modal, product3Modal, etc. (unchanged) -->
+    <div
+      id="product2Modal"
+      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60"
+    >
+      <div class="relative bg-white rounded p-6 max-w-lg w-full text-gray-800">
+        <button
+          class="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          onclick="closeFormModal('product2Modal')"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-xl font-semibold mb-4">Buy Suit Salwar 2</h2>
+        <form action="upi://pay" method="get">
+          <input type="hidden" name="pa" value="hanjla1@paytm" />
+          <input type="hidden" name="pn" value="Zarkan" />
+          <input type="hidden" name="tn" value="Payment for Suit Salwar 2" />
+          <input type="hidden" name="am" value="999.00" />
+          <input type="hidden" name="cu" value="INR" />
+          <!-- Additional Input Fields -->
+          <fieldset class="space-y-3 mb-4">
+            <!-- same fields as above -->
+            <label class="block">
+              <span class="text-gray-700">Size</span>
+              <select
+                name="size"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              >
+                <option value="">Select Size</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Pieces</span>
+              <input
+                type="number"
+                name="pieces"
+                value="1"
+                min="1"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Color</span>
+              <input
+                type="text"
+                name="color"
+                placeholder="Enter color choice"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Full Name</span>
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Enter your full name"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Address</span>
+              <input
+                type="text"
+                name="address"
+                placeholder="Enter address"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">City</span>
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Pin Code</span>
+              <input
+                type="text"
+                name="pincode"
+                placeholder="Pin Code"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">State</span>
+              <input
+                type="text"
+                name="state"
+                placeholder="State"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-gray-700">Phone Number</span>
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                class="border border-gray-300 rounded px-2 py-1 w-full"
+                required
+              />
+            </label>
+          </fieldset>
+          <button
+            type="submit"
+            class="
+              w-full bg-brandPink text-white py-2 rounded
+              hover:bg-brandBlue transition-colors
+            "
+          >
+            Proceed to Pay
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Repeat similarly for product3Modal, product4Modal, product5Modal, product6Modal... -->
+    <div
+      id="product3Modal"
+      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60"
+    >
+      <div class="relative bg-white rounded p-6 max-w-lg w-full text-gray-800">
+        <button
+          class="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          onclick="closeFormModal('product3Modal')"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-xl font-semibold mb-4">Buy Suit Salwar 3</h2>
+        <form action="upi://pay" method="get">
+          <input type="hidden" name="pa" value="hanjla1@paytm" />
+          <input type="hidden" name="pn" value="Zarkan" />
+          <input type="hidden" name="tn" value="Payment for Suit Salwar 3" />
+          <input type="hidden" name="am" value="699.00" />
+          <input type="hidden" name="cu" value="INR" />
+          <!-- Fields repeated -->
+          <!-- ... -->
+          <fieldset class="space-y-3 mb-4">
+            <!-- same as above -->
+            <!-- ... -->
+          </fieldset>
+          <button
+            type="submit"
+            class="
+              w-full bg-brandPink text-white py-2 rounded
+              hover:bg-brandBlue transition-colors
+            "
+          >
+            Proceed to Pay
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Likewise for product4Modal, product5Modal, product6Modal, omitted for brevity -->
+    <!-- SCRIPTS -->
+    <script>
+      /* HOME Button Placeholder */
+      function goHome() {
+        alert("Home button clicked! (Placeholder)");
+      }
+
+      /* SEARCH Overlay */
+      function openSearchOverlay() {
+        document.getElementById("searchOverlay").classList.remove("hidden");
+      }
+      function closeSearchOverlay() {
+        document.getElementById("searchOverlay").classList.add("hidden");
+      }
+
+      /* CONTACT Modal */
+      function openContactModal() {
+        document.getElementById("contactModal").classList.remove("hidden");
+      }
+      function closeContactModal() {
+        document.getElementById("contactModal").classList.add("hidden");
+      }
+
+      /* IMAGE PREVIEW */
+      function openImagePreview(imageUrl) {
+        const imageModal = document.getElementById("imagePreviewModal");
+        const previewImg = document.getElementById("previewImage");
+        previewImg.src = imageUrl;
+        imageModal.classList.remove("hidden");
+      }
+      function closeImagePreview() {
+        document.getElementById("imagePreviewModal").classList.add("hidden");
+      }
+
+      /* BUY NOW / FORM MODALS */
+      function openFormModal(modalId) {
+        document.getElementById(modalId).classList.remove("hidden");
+      }
+      function closeFormModal(modalId) {
+        document.getElementById(modalId).classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
